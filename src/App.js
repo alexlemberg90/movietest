@@ -1,17 +1,15 @@
 import React from 'react'
-import logo from './logo.svg';
 import './App.css';
-import {moviesService} from "./services";
+import {Baselayout} from "./layouts";
+import {Home} from "./pages";
 
 
 function App() {
-  React.useEffect(() => {
-    moviesService.getMovies().then(console.log)
-  },[])
-  return (
-    <div>
 
-    </div>
+  return (
+    <Baselayout>
+      <Home/>
+    </Baselayout>
   );
 }
 
