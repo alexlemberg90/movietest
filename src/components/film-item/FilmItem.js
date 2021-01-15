@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './FilmItem.module.css'
 
 export const FilmItem = (props) => {
     // adult: false
@@ -19,9 +20,9 @@ export const FilmItem = (props) => {
     const {original_title, overview, release_date, vote_average, vote_count, poster_path} = props;
 
     return (
-        <div>
+        <div className={styles.filmItem}>
             <div>
-                <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`${original_title} poster`}/>
+                <img className={styles.imgStyles} src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt={`${original_title} poster`}/>
             </div>
             <div>
                 <h2>{original_title}</h2>
