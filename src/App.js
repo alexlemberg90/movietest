@@ -1,8 +1,14 @@
 import React from 'react'
 import './App.css';
 import {Baselayout} from "./layouts";
-import {Home} from "./pages";
-import {Switch, Route, useHistory} from 'react-router-dom'
+import {Home, MovieDetails} from "./pages";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory
+} from "react-router-dom";
 
 
 function App() {
@@ -11,15 +17,17 @@ function App() {
     <Baselayout>
         <Switch>
             <Route path="/" exact>
-                <Home/>
+                <Home />
             </Route>
-            <Route path="/movie/:id">
+            <Route path="/movie/:id" exact>
+                <MovieDetails/>
             </Route>
             <Route>
-                <h1>PAGE NOT FOUND <button onClick={
-                    history.push('/')
-                }>Home page</button></h1>
+                <h1>PAGE NOT FOUND <button onClick={()=>{
+                    history.push('/')}
+                }>home page</button></h1><div></div>
             </Route>
+
         </Switch>
     </Baselayout>
   );

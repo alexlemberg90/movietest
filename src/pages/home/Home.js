@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import {FilmList} from "../components/film-list";
-import {moviesService, genresService} from "../services";
+import {FilmList} from "../../components/film-list";
+import {moviesService, genresService} from "../../services";
 import style from './Home.module.css'
+import {useHistory} from "react-router-dom";
 
 export const Home = () => {
+    const history = useHistory();
     const [moviesList, setMoviesList] = useState([]);
     const [isLoading, setIsLoading] = useState(null);
 
@@ -47,6 +49,7 @@ export const Home = () => {
         }
     }
 
+
     useEffect(() => {
         fetchMovieData()
     },[])
@@ -55,9 +58,13 @@ export const Home = () => {
         <div className={style.loading}>Loading...</div>
     )
 
+    const onFilmClick = (film) => {
+        history.push(`/movie/${film.id}`)
+    }
+
     return (
         <div>
-            {isLoading || isLoading === null ? renderLoadingIndicator() : <FilmList items={moviesList}/>}
+            {isLoading || isLoading === null ? renderLoadingIndicator() : (<FilmList onFilmClick={onFilmClick} items={moviesList}/>)}
         </div>
     )
 }

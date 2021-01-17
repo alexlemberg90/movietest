@@ -15,10 +15,10 @@ main {
     overflow-y: auto;
 }
 header {
-    background-color: antiquewhite;
+    background-color: darkred;
     padding: 10px 20px;
 }
 footer {
-    background-color: antiquewhite;
+    background-color: darkred;
     padding: 10px 20px;
 }
